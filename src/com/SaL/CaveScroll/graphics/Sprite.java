@@ -1,6 +1,8 @@
 package com.SaL.CaveScroll.graphics;
 
 
+
+
 public class Sprite {
 	
 	public final int SIZE;
@@ -11,6 +13,12 @@ public class Sprite {
 	public static Sprite VoidSprite = new Sprite(16, 0x1B87E0);
 	public static Sprite brick = new Sprite(16, 0, 0, SpriteSheet.tiles);
 	public static Sprite sky = new Sprite(16, 1, 0, SpriteSheet.tiles);
+	public static Sprite sky2 = new Sprite(16, 2, 0, SpriteSheet.tiles);
+	public static Sprite sky3 = new Sprite(16, 3, 0, SpriteSheet.tiles);
+	
+	public static Sprite PlayerStill_1= new Sprite(32,0,1,SpriteSheet.tiles);
+	public static Sprite PlayerStill_2= new Sprite(32,0,2,SpriteSheet.tiles);
+
 
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 

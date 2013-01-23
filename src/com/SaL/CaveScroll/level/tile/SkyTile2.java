@@ -4,9 +4,10 @@ import com.SaL.CaveScroll.graphics.Screen;
 import com.SaL.CaveScroll.graphics.Sprite;
 
 
-public class BrickTile extends Tile {
-	
-	public BrickTile(Sprite sprite) {
+
+public class SkyTile2 extends Tile {
+
+	public SkyTile2(Sprite sprite) {
 
 		super(sprite);
 
@@ -16,9 +17,6 @@ public class BrickTile extends Tile {
 
 		screen.renderTile(x << 4, y << 4, this);
 
-	}
-	public boolean solid() {
-		return true;
 	}
 
 }

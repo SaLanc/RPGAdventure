@@ -5,13 +5,15 @@ import com.SaL.CaveScroll.level.tile.Tile;
 
 public class Level {
 
-	protected int[] tiles;
-	protected int width, height;
-	protected int xSpawn, ySpawn;
+	public static int[] tiles;
+	public int width, height;
+	public static int xSpawn;
+	public static int ySpawn;
 
 	public Level(String path) {
 
 		loadLevel(path);
+		
 	}
 
 	protected void loadLevel(String path) {
@@ -41,6 +43,9 @@ public class Level {
 
 		if (tiles[x + y * width] == 0xFFA0A0A0) return Tile.brick;
 		if (tiles[x + y * width] == 0xFF00FFFF) return Tile.sky;
+		if (tiles[x + y * width] == 0xFF007ED8) return Tile.sky2;
+		if (tiles[x + y * width] == 0xFF4CFF00) return Tile.sky3;
+
 		return Tile.VoidTile;
 	}
 }

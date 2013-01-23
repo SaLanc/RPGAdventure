@@ -7,8 +7,8 @@ import com.SaL.CaveScroll.level.Level;
 
 
 
-public class Entity {
-	public int x,y;
+public abstract class  Entity {
+	public int x,y,xp,yp;
 	private boolean removed = false;
 	protected Level level;
 	protected final Random random = new Random();
