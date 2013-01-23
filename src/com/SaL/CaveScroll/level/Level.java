@@ -6,13 +6,31 @@ import com.SaL.CaveScroll.level.tile.Tile;
 public class Level {
 
 	public static int[] tiles;
-	public int width, height;
+	public static boolean[] solids;
+	public static int width, height;
 	public static int xSpawn;
 	public static int ySpawn;
 
 	public Level(String path) {
 
 		loadLevel(path);
+		solidsCheck();
+
+	}
+
+	private void solidsCheck() {
+		solids = new boolean[width*height];
+		for (int x = 0;x<width;x++){
+			for (int y = 0;y<height;y++) {
+				if (x < 0 || y < 0 || x >= width || y >= height) return;
+				if (tiles[x + y*width] == 0xFFA0A0A0) {
+					solids[x+y*width]= true;
+				}else {
+					solids[x+y*width]= false;
+				}
+					
+			}
+		}
 		
 	}
 
@@ -29,7 +47,7 @@ public class Level {
 		int y1 = (yScroll + screen.height + 16) >> 4;
 		for (int y = y0; y < y1; y++) {
 			for (int x = x0; x < x1; x++) {
-				getTile(x+xSpawn, y+ySpawn).render(x, y, screen);
+				getTile(x + xSpawn, y + ySpawn).render(x, y, screen);
 
 			}
 
@@ -39,7 +57,7 @@ public class Level {
 
 	public Tile getTile(int x, int y) {
 
-		if (x < 0 || y < 0 || x >= width || y >= height) return Tile.VoidTile;
+		if (x < 0 || y < 0 || x >= width || y >= height) return Tile.brick;
 
 		if (tiles[x + y * width] == 0xFFA0A0A0) return Tile.brick;
 		if (tiles[x + y * width] == 0xFF00FFFF) return Tile.sky;
