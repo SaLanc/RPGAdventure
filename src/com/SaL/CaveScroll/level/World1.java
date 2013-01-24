@@ -17,8 +17,8 @@ public class World1 extends Level {
 	}
 
 	protected void loadLevel(String path) {
-		Level.xSpawn = 4;
-		Level.ySpawn = 7;
+		Level.xSpawn = 5;
+		Level.ySpawn = 6;
 
 		try {
 			BufferedImage image = ImageIO.read(World1.class.getResource(path));

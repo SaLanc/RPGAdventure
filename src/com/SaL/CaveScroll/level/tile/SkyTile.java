@@ -17,5 +17,7 @@ public class SkyTile extends Tile {
 		screen.renderTile(x << 4, y << 4, this);
 
 	}
-
+	public boolean solid() {
+		return false;
+	}
 }

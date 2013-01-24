@@ -4,6 +4,7 @@ import com.SaL.CaveScroll.graphics.Screen;
 import com.SaL.CaveScroll.graphics.Sprite;
 import com.SaL.CaveScroll.input.KeyBoard;
 //import com.SaL.CaveScroll.level.tile.Tile;
+import com.SaL.CaveScroll.level.Level;
 
 public class Player extends Mob {
 
@@ -16,14 +17,9 @@ public class Player extends Mob {
 
 		this.input = input;
 		sprite = Sprite.PlayerStill_1;
+		this.x += Level.xSpawn<<4;
+		this.y += Level.ySpawn<<4;
 
-	}
-
-	public Player(int x, int y, KeyBoard input) {
-
-		this.x = x;
-		this.y = y;
-		this.input = input;
 	}
 
 	public void update() {
