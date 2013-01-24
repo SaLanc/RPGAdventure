@@ -1,8 +1,8 @@
-package com.SaL.CaveScroll.entity.mob;
+package com.SaL.RPGAdventure.entity.mob;
 
-import com.SaL.CaveScroll.entity.Entity;
-import com.SaL.CaveScroll.graphics.Sprite;
-import com.SaL.CaveScroll.level.Level;
+import com.SaL.RPGAdventure.entity.Entity;
+import com.SaL.RPGAdventure.graphics.Sprite;
+import com.SaL.RPGAdventure.level.Level;
 
 public abstract class Mob extends Entity {
 
@@ -24,23 +24,12 @@ public abstract class Mob extends Entity {
 		collisioncheck(xa, ya);
 
 	}
-public boolean falling() {
-	if (!Level.world[centerX+1][((y+1)>>4)+1].solid()&!Level.world[centerX][((y+1)>>4)+1].solid() &!Level.world[centerX-1][((y+1)>>4)+1].solid()& V == 0){
-		return true;
-	} else {
-		return false;
-	}
-		
-}
 
 	public void update() {
 
 	}
 
 	public void collisioncheck(int xa, int ya) {
-
-		//		System.out.println(Level.world[centerX][centerY].solid());
-		//		System.out.println(centerX + " "+ centerY);
 
 		// X check
 		if (!Level.world[centerXa + xa][centerY - 1].solid() & !Level.world[centerXa + xa][centerY + 1].solid() & !Level.world[centerXa + xa][centerY].solid()) {

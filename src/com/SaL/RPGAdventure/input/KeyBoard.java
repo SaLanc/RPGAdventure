@@ -1,4 +1,4 @@
-package com.SaL.CaveScroll.input;
+package com.SaL.RPGAdventure.input;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -9,7 +9,6 @@ public class KeyBoard implements KeyListener {
 	public boolean up, down, left, right, space;
 
 	public void update() {
-
 		up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W]||keys[KeyEvent.VK_SPACE];
 		down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
 		left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];

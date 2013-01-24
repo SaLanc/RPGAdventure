@@ -1,7 +1,7 @@
-package com.SaL.CaveScroll.level.tile;
+package com.SaL.RPGAdventure.level.tile;
 
-import com.SaL.CaveScroll.graphics.Screen;
-import com.SaL.CaveScroll.graphics.Sprite;
+import com.SaL.RPGAdventure.graphics.Screen;
+import com.SaL.RPGAdventure.graphics.Sprite;
 
 
 public class SkyTile extends Tile {
@@ -18,6 +18,9 @@ public class SkyTile extends Tile {
 
 	}
 	public boolean solid() {
+		return false;
+	}
+	public boolean Accessory() {
 		return false;
 	}
 }

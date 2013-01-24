@@ -1,4 +1,4 @@
-package com.SaL.CaveScroll.level;
+package com.SaL.RPGAdventure.level;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

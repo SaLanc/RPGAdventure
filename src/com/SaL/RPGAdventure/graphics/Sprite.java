@@ -1,4 +1,4 @@
-package com.SaL.CaveScroll.graphics;
+package com.SaL.RPGAdventure.graphics;
 
 
 
@@ -18,6 +18,8 @@ public class Sprite {
 	
 	public static Sprite PlayerStill_1= new Sprite(32,0,1,SpriteSheet.tiles);
 	public static Sprite PlayerStill_2= new Sprite(32,0,2,SpriteSheet.tiles);
+	
+	public static Sprite woodfloor = new Sprite(16,10,0,SpriteSheet.tiles);
 
 
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {

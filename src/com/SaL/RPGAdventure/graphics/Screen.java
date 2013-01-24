@@ -1,6 +1,6 @@
-package com.SaL.CaveScroll.graphics;
+package com.SaL.RPGAdventure.graphics;
 
-import com.SaL.CaveScroll.level.tile.Tile;
+import com.SaL.RPGAdventure.level.tile.Tile;
 
 public class Screen {
 
@@ -59,7 +59,7 @@ public class Screen {
 
 	}
 
-	public void setSpawn(int xOffset, int yOffset) {
+	public void setOffset(int xOffset, int yOffset) {
 
 		this.xOffset = xOffset;
 		this.yOffset = yOffset;

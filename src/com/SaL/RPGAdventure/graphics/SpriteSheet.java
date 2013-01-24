@@ -1,4 +1,4 @@
-package com.SaL.CaveScroll.graphics;
+package com.SaL.RPGAdventure.graphics;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
