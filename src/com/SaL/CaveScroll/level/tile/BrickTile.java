@@ -18,7 +18,7 @@ public class BrickTile extends Tile {
 
 	}
 	public boolean solid() {
-		System.out.println("solids check");
+		//System.out.println("solids check");
 		return true;
 	}
 

@@ -6,6 +6,7 @@ import com.SaL.CaveScroll.level.tile.Tile;
 public class Level {
 
 	public static int[] tiles;
+	public static Tile[][] world;
 	public static int width, height;
 	public static int xSpawn;
 	public static int ySpawn;
@@ -13,7 +14,7 @@ public class Level {
 	public Level(String path) {
 
 		loadLevel(path);
-
+		getTiles();
 
 	}
 
@@ -30,23 +31,31 @@ public class Level {
 		int y1 = (yScroll + screen.height + 16) >> 4;
 		for (int y = y0; y < y1; y++) {
 			for (int x = x0; x < x1; x++) {
-				getTile(x, y).render(x, y, screen);
-
+				if (x < 0 || y < 0 || x >= width || y >= height) {
+					Tile.brick.render(x, y, screen);
+				} else {
+					world[x][y].render(x, y, screen);
+				}
 			}
 
 		}
 
 	}
 
-	public static Tile getTile(int x, int y) {
+	private void getTiles() {
 
-		if (x < 0 || y < 0 || x >= width || y >= height) return Tile.brick;
+		world = new Tile[width][height];
 
-		if (tiles[x + y * width] == 0xFFA0A0A0) return Tile.brick;
-		if (tiles[x + y * width] == 0xFF00FFFF) return Tile.sky;
-		if (tiles[x + y * width] == 0xFF007ED8) return Tile.sky2;
-		if (tiles[x + y * width] == 0xFF4CFF00) return Tile.sky3;
-
-		return Tile.VoidTile;
+			for (int x = 0; x < width; x++) {
+				for (int y = 0; y < height; y++) {
+					if (tiles[x+y*width] == 0xFFA0A0A0) world[x][y] = Tile.brick;
+					if (tiles[x+y*width] == 0xFF00FFFF) world[x][y] = Tile.sky;
+					if (tiles[x+y*width] == 0xFF007ED8) world[x][y] = Tile.sky2;
+					if (tiles[x+y*width] == 0xFF4CFF00) world[x][y] = Tile.sky3;
+				
+			}
+		}
 	}
+
+	
 }

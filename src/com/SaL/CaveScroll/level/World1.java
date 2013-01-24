@@ -22,8 +22,8 @@ public class World1 extends Level {
 
 		try {
 			BufferedImage image = ImageIO.read(World1.class.getResource(path));
-			this.width = image.getWidth();
-			this.height= image.getHeight();
+			World1.width = image.getWidth();
+			World1.height= image.getHeight();
 			tiles = new int[width * height];
 			image.getRGB(0, 0, width, height, tiles, 0, width);
 
