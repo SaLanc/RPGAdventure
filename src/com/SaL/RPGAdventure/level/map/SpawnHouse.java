@@ -7,7 +7,8 @@ import javax.imageio.ImageIO;
 
 import com.SaL.RPGAdventure.level.Level;
 import com.SaL.RPGAdventure.level.World1;
-import com.SaL.RPGAdventure.level.tile.Tile;
+
+import com.SaL.RPGAdventure.level.tile.indoortiles.IndoorTiles;
 
 public class SpawnHouse extends Level{
 	
@@ -17,9 +18,9 @@ public class SpawnHouse extends Level{
 	}
 
 	protected void loadLevel(String path) {
-		Level.xSpawn = 5;
-		Level.ySpawn = 6;
-		Level.levelType = Tile.woodfloor;
+		Level.xSpawn = 11;
+		Level.ySpawn = 4;
+		Level.levelType = IndoorTiles.woodfloor;
 
 		try {
 			BufferedImage image = ImageIO.read(World1.class.getResource(path));

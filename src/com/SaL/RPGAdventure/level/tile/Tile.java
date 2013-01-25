@@ -13,8 +13,7 @@ public class Tile {
 	public static Tile sky = new SkyTile(Sprite.sky);
 	public static Tile sky2 = new SkyTile2(Sprite.sky2);
 	public static Tile sky3 = new SkyTile3(Sprite.sky3);
-	public static Tile woodfloor = new WoodFloor(Sprite.woodfloor);
-
+	
 	public Tile(Sprite sprite) {
 
 		this.sprite = sprite;
@@ -29,6 +28,9 @@ public class Tile {
 	}
 
 	public boolean Accessory() {
+		return false;
+	}
+	public boolean Hanging(){
 		return false;
 	}
 }

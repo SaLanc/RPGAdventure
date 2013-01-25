@@ -9,7 +9,7 @@ public abstract class Mob extends Entity {
 	protected Sprite sprite;
 	protected int dir = 0;
 	protected boolean moving = false;
-	public int centerXa, centerYa;
+	public int centerXa, centerYa,footCheck,XfootLeft,XfootRight;
 
 	public void move(int xa, int ya) {
 
@@ -17,10 +17,13 @@ public abstract class Mob extends Entity {
 		if (xa < 0) dir = 3;
 		if (ya > 0) dir = 2;
 		if (ya < 0) dir = 0;
-		centerX = ((x - 16) >> 4);
-		centerXa = ((x + xa - 16) >> 4);
-		centerYa = ((y + ya) >> 4);
+		centerX = ((x) >> 4);
+		centerXa = ((x + (xa*7) ) >> 4);
+		centerYa = ((y + (ya*7)) >> 4);
 		centerY = (y >> 4);
+		footCheck = ((y+5)>>4);
+		XfootLeft = ((x+5)>>4);
+		XfootRight= ((x-5)>>4);
 		collisioncheck(xa, ya);
 
 	}
@@ -32,11 +35,11 @@ public abstract class Mob extends Entity {
 	public void collisioncheck(int xa, int ya) {
 
 		// X check
-		if (!Level.world[centerXa + xa][centerY - 1].solid() & !Level.world[centerXa + xa][centerY + 1].solid() & !Level.world[centerXa + xa][centerY].solid()) {
+		if (!Level.world[centerXa][centerY].solid()& !Level.world[centerXa][footCheck].solid()) {
 			x += xa;
 		}
 		// Y check
-		if (!Level.world[centerX + 1][centerYa + ya].solid() & !Level.world[centerX - 1][centerYa + ya].solid() & !Level.world[centerX][centerYa + ya].solid()) {
+		if (!Level.world[centerX][centerYa].solid()& !Level.world[XfootRight][centerY].solid()& !Level.world[XfootRight][centerY].solid()) {
 			y += ya;
 		}
 	}

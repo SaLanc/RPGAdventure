@@ -9,7 +9,6 @@ import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
-import com.SaL.RPGAdventure.entity.Entity;
 import com.SaL.RPGAdventure.entity.mob.Player;
 import com.SaL.RPGAdventure.graphics.Screen;
 import com.SaL.RPGAdventure.input.KeyBoard;
@@ -33,9 +32,8 @@ public class Game extends Canvas implements Runnable {
 	private KeyBoard key;
 	private Level level;
 	private Player player;
-//	private Entity entities;
+	//	private Entity entities;
 	private boolean running = false;
-
 	private Screen screen;
 
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -49,10 +47,10 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new KeyBoard();
-		level = new SpawnHouse("/textures/maps/level.png");
+		level = new SpawnHouse("/textures/maps/spawnroom.png");
 		player = new Player(key);
-	//	entities = new Entity();
-		
+		//	entities = new Entity();
+
 		addKeyListener(key);
 	}
 
@@ -93,6 +91,7 @@ public class Game extends Canvas implements Runnable {
 				delta--;
 			}
 			render();
+		//	level.update(screen);
 			frames++;
 
 			if (System.currentTimeMillis() - timer > 1000) {
@@ -118,7 +117,7 @@ public class Game extends Canvas implements Runnable {
 
 		level.render(xScroll, yScroll, screen);
 		player.render(screen);
-		level.renderAcc(xScroll, yScroll,screen);
+		level.renderAcc(xScroll, yScroll, screen);
 
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
@@ -135,6 +134,7 @@ public class Game extends Canvas implements Runnable {
 
 		key.update();
 		player.update();
+
 
 	}
 
