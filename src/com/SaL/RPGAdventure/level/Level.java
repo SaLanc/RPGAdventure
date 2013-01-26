@@ -77,6 +77,7 @@ public class Level {
 		}
 	}
 
+
 	@SuppressWarnings("unchecked")
 	private void getTiles() {
 
@@ -119,6 +120,10 @@ public class Level {
 					world[x + 1][y] = IndoorTiles.table1;
 					world[x][y + 1] = IndoorTiles.table2;
 					world[x + 1][y + 1] = IndoorTiles.table3;
+				}
+				if (tiles[x + y * width] == 0xFFFFD800) world[x][y] = IndoorTiles.torchn;
+				if (tiles[x + y * width] == 0xFFFF3700) {
+					world[x][y] = IndoorTiles.rug1;
 
 				}
 

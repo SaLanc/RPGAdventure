@@ -37,6 +37,8 @@ public class Screen {
 				int xa = x + xp;
 				if (xa < -tile.sprite.SIZEY || xa >= width || ya < 0 || ya >= height) break;
 				if (xa < 0) xa = 0;
+				
+				
 				int col = tile.sprite.pixels[x + y * tile.sprite.SIZEY];
 				if (col!= 0xFFFF00FF &col!= 0x00FF00FF) pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.SIZEY];
 			}
@@ -68,6 +70,8 @@ public class Screen {
 			int xa = x + xp;
 				if (xa < 0 || xa >= width || ya < 0 || ya >= height) break;
 				if (xa < 0) xa = 0;
+				
+				
 				int col = sprite.pixels[x + y * 16];
 				if (col!= 0xFFFEC5C5) pixels[xa + ya * width] = col;
 			}
