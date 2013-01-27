@@ -35,7 +35,6 @@ public class Game extends Canvas implements Runnable {
 	//	private Entity entities;
 	private boolean running = false;
 	private Screen screen;
-	public static boolean qtick = false;
 
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
@@ -78,8 +77,6 @@ public class Game extends Canvas implements Runnable {
 		long lastTime = System.nanoTime();
 		long timer = System.currentTimeMillis();
 		final double ns = 1000000000.0 / 90.0;
-		long ticktimenow = System.currentTimeMillis();
-		long ticktimer =0;
 		double delta = 0;
 		int frames = 0;
 		int updates = 0;
@@ -96,13 +93,6 @@ public class Game extends Canvas implements Runnable {
 			render();
 		//	level.update(screen);
 			frames++;
-			ticktimenow = System.currentTimeMillis();
-			System.out.println(ticktimenow - ticktimer);
-			if (ticktimenow - ticktimer  > 500) {
-				ticktimer = System.currentTimeMillis();
-			}
-		qtick =ticktimenow - ticktimer > 250;
-
 
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;

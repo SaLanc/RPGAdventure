@@ -34,8 +34,6 @@ public class Sprite {
 
 
 	//indoor tiles
-	
-											// (size,x,y)
 	public static Sprite woodfloor = new Sprite(16,6,0,SpriteSheet.indoortiles);
 	public static Sprite chaireast1 = new Sprite(16,6,0,SpriteSheet.indoortiles);
 	public static Sprite chaireast2 = new Sprite(16,6,0,SpriteSheet.indoortiles);
@@ -59,14 +57,6 @@ public class Sprite {
 	public static Sprite table3 = new Sprite(16,5,3,SpriteSheet.indoortiles);
 	public static Sprite armorrack = new Sprite(16,3,4,SpriteSheet.indoortiles);
 	public static Sprite armorrack1 = new Sprite(16,3,5,SpriteSheet.indoortiles);
-	public static Sprite torchn = new Sprite(16,6,5,SpriteSheet.indoortiles);
-	public static Sprite torchn2 = new Sprite(16,6,6,SpriteSheet.indoortiles);
-	public static Sprite rug1 = new Sprite(16,0,0,SpriteSheet.indoortiles);
-	public static Sprite rug2 = new Sprite(16,1,0,SpriteSheet.indoortiles);
-	public static Sprite rug3 = new Sprite(16,2,0,SpriteSheet.indoortiles);
-	public static Sprite rug4 = new Sprite(16,0,1,SpriteSheet.indoortiles);
-	public static Sprite rug5 = new Sprite(16,1,1,SpriteSheet.indoortiles);
-	public static Sprite rug6 = new Sprite(16,2,1,SpriteSheet.indoortiles);
 
 
 

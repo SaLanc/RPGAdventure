@@ -23,7 +23,9 @@ public class ArmorRack extends Tile{
 		screen.renderTile(x << 4, y << 4, this);
 
 	}
-
+	public boolean Hanging(){
+		return true;
+	}
 }
 
 

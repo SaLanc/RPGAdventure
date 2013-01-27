@@ -30,25 +30,16 @@ public class IndoorTiles extends Tile{
 	public static Tile table3 = new Table3(Sprite.table3);
 	public static Tile armorrack = new ArmorRack(Sprite.armorrack);
 	public static Tile armorrack1 = new ArmorRack1(Sprite.armorrack1);
-	public static Tile torchn = new torchN(Sprite.torchn);
-	public static Tile torchn2 = new torchN(Sprite.torchn2);
-	public static Tile rug1 =  new rug(Sprite.rug1);
-	public static Tile rug2 =  new rug(Sprite.rug2);
-	public static Tile rug3 =  new rug(Sprite.rug3);
-	public static Tile rug4 =  new rug(Sprite.rug4);
-	public static Tile rug5 =  new rug(Sprite.rug5);
-	public static Tile rug6 =  new rug(Sprite.rug6);
 
 	
 	
 	public IndoorTiles(Sprite sprite) {
 
 		super(sprite);
-
+		// TODO Auto-generated constructor stub
 	}
 
 	public void render(int x, int y, Screen screen) {
-
 
 	}
 
