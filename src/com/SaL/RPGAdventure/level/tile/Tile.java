@@ -5,8 +5,10 @@ import com.SaL.RPGAdventure.graphics.Sprite;
 
 public class Tile {
 
-	public int x, y;
+	public int x,y;
 	public Sprite sprite;
+	public static Tile[][] loc;
+	public static Tile[][] floormask;
 
 	public static Tile VoidTile = new VoidTile(Sprite.VoidSprite);
 	public static Tile brick = new BrickTile(Sprite.brick);
@@ -18,6 +20,9 @@ public class Tile {
 	public Tile(Sprite sprite) {
 
 		this.sprite = sprite;
+	}
+	public void Regester(int x, int y){
+		
 	}
 
 	public void render(int x, int y, Screen screen) {
@@ -32,5 +37,10 @@ public class Tile {
 	}
 	public boolean OverPlayer(){
 		return false;
+	}
+	public void toprender(int x, int y, Screen screen) {
+
+		// TODO Auto-generated method stub
+		
 	}
 }

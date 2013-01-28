@@ -12,6 +12,9 @@ public class rug extends Tile {
 		super(sprite);
 		// TODO Auto-generated constructor stub
 	}
+public void Regester(int x, int y){
+		
+	}
 	public boolean Accessory(){
 		return false;
 	}

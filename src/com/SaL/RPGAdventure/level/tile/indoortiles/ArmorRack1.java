@@ -2,6 +2,7 @@ package com.SaL.RPGAdventure.level.tile.indoortiles;
 
 import com.SaL.RPGAdventure.graphics.Screen;
 import com.SaL.RPGAdventure.graphics.Sprite;
+import com.SaL.RPGAdventure.level.Level;
 import com.SaL.RPGAdventure.level.tile.Tile;
 
 
@@ -19,7 +20,7 @@ public class ArmorRack1 extends Tile{
 		return true;
 	}
 	public void render(int x, int y, Screen screen) {
-
+		screen.renderTile(x << 4, y << 4, Level.levelType);
 		screen.renderTile(x << 4, (y << 4)-9, this);
 		screen.renderTile(x << 4, (y-1 << 4)-9, IndoorTiles.armorrack);
 	}

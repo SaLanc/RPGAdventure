@@ -2,6 +2,7 @@ package com.SaL.RPGAdventure.level.tile.indoortiles;
 
 import com.SaL.RPGAdventure.graphics.Screen;
 import com.SaL.RPGAdventure.graphics.Sprite;
+import com.SaL.RPGAdventure.level.Level;
 import com.SaL.RPGAdventure.level.tile.Tile;
 
 public class WoodFloor extends Tile {
@@ -11,6 +12,10 @@ public class WoodFloor extends Tile {
 
 		super(sprite);
 		// TODO Auto-generated constructor stub
+	}
+public void Regester(int x, int y){
+	loc[x][y] = IndoorTiles.woodfloor;
+	Level.world[x][y] = loc[x][y];
 	}
 
 	public void render(int x, int y, Screen screen) {

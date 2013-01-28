@@ -19,11 +19,11 @@ public abstract class Mob extends Entity {
 		if (ya < 0) dir = 0;
 		centerX = ((x) >> 4);
 		centerXa = ((x + (xa*7) ) >> 4);
-		centerYa = ((y + (ya*7)) >> 4);
+		centerYa = ((y + (ya*6)) >> 4);
 		centerY = (y >> 4);
-		footCheck = ((y+5)>>4);
-		XfootLeft = ((x+5)>>4);
-		XfootRight= ((x-5)>>4);
+		footCheck = ((y+3)>>4);
+		XfootLeft = ((x+3)>>4);
+		XfootRight= ((x-3)>>4);
 		collisioncheck(xa, ya);
 
 	}
@@ -35,11 +35,11 @@ public abstract class Mob extends Entity {
 	public void collisioncheck(int xa, int ya) {
 
 		// X check
-		if (!Level.world[centerXa][centerY].solid()& !Level.world[centerXa][footCheck].solid()) {
+		if (!Level.Solids[centerXa][centerY] & !Level.Solids[centerXa][footCheck]) {
 			x += xa;
 		}
 		// Y check
-		if (!Level.world[centerX][centerYa].solid()& !Level.world[XfootRight][centerY].solid()& !Level.world[XfootRight][centerY].solid()) {
+		if (!Level.Solids[centerX][centerYa]& !Level.Solids[XfootRight][centerY]& !Level.Solids[XfootRight][centerY]) {
 			y += ya;
 		}
 	}

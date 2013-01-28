@@ -4,18 +4,20 @@ import com.SaL.RPGAdventure.graphics.Screen;
 import com.SaL.RPGAdventure.graphics.Sprite;
 import com.SaL.RPGAdventure.level.tile.Tile;
 
+public class IndoorTiles extends Tile {
 
-public class IndoorTiles extends Tile{
-	
 	public static Tile woodfloor = new WoodFloor(Sprite.woodfloor);
-	public static Tile chaireast1 = new ChairEast1(Sprite.chaireast1);
-	public static Tile chaireast2 = new ChairEast2(Sprite.chaireast2);
-	public static Tile chairwest1 = new ChairWest1(Sprite.chairwest1);
-	public static Tile chairwest2 = new ChairWest2(Sprite.chairwest2);
-	public static Tile chairnorth1 = new ChairNorth1(Sprite.chairnorth1);
-	public static Tile chairnorth2 = new ChairNorth2(Sprite.chairnorth2);
-	public static Tile chairsouth1 = new ChairSouth1(Sprite.chairsouth1);
-	public static Tile chairsouth2 = new ChairSouth2(Sprite.chairsouth2);
+
+	public static Tile chairwest = new ChairWest(Sprite.chairwest1);
+	public static Tile chairwest1 = new ChairWest(Sprite.chairwest);
+
+	public static Tile chairnorth = new ChairNorth(Sprite.chairnorth1);
+	public static Tile chairnorth1 = new ChairNorth(Sprite.chairnorth1);
+
+
+	public static Tile chairsouth = new ChairSouth(Sprite.chairsouth2);
+	public static Tile chairsouth1 = new ChairSouth(Sprite.chairsouth1);
+
 	public static Tile brickwallnorth = new BrickWallNorth(Sprite.brickwallnorth);
 	public static Tile brickwallsouth = new BrickWallSouth(Sprite.brickwallsouth);
 	public static Tile brickwalleast = new BrickWallEast(Sprite.brickwalleast);
@@ -32,15 +34,9 @@ public class IndoorTiles extends Tile{
 	public static Tile armorrack1 = new ArmorRack1(Sprite.armorrack1);
 	public static Tile torchn = new torchN(Sprite.torchn);
 	public static Tile torchn2 = new torchN(Sprite.torchn2);
-	public static Tile rug1 =  new rug(Sprite.rug1);
-	public static Tile rug2 =  new rug(Sprite.rug2);
-	public static Tile rug3 =  new rug(Sprite.rug3);
-	public static Tile rug4 =  new rug(Sprite.rug4);
-	public static Tile rug5 =  new rug(Sprite.rug5);
-	public static Tile rug6 =  new rug(Sprite.rug6);
+	public static Tile rug = new rug(Sprite.rug1);
 
-	
-	
+
 	public IndoorTiles(Sprite sprite) {
 
 		super(sprite);
@@ -49,17 +45,24 @@ public class IndoorTiles extends Tile{
 
 	public void render(int x, int y, Screen screen) {
 
+	}
+
+	public void Regester(int x, int y) {
 
 	}
 
 	public boolean solid() {
+
 		return false;
 	}
 
 	public boolean Accessory() {
+
 		return false;
 	}
-	public boolean OverPlayer(){
+
+	public boolean OverPlayer() {
+
 		return false;
 	}
 

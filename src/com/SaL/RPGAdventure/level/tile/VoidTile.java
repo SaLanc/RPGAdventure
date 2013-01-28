@@ -10,6 +10,9 @@ import com.SaL.RPGAdventure.graphics.Sprite;
 			super(sprite);
 
 		}
+		public void Regester(int x, int y){
+			
+		}
 
 		public void render(int x, int y, Screen screen) {
 

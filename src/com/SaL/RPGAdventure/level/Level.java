@@ -16,6 +16,7 @@ public class Level {
 	public static Tile[][] world;
 	public static boolean[][] Solids;
 	public static boolean[][] OverPlayer;
+	public static Tile[][] walls;
 	public static Tile[][] OverTiles;
 	public static int width, height;
 	public static int xSpawn, ySpawn;
@@ -34,6 +35,8 @@ public class Level {
 	protected void loadLevel(String Path) {
 
 	}
+	
+
 
 	public void render(int xScroll, int yScroll, Screen screen) {
 
@@ -47,11 +50,12 @@ public class Level {
 				if (x < 0 || y < 0 || x >= width || y >= height) {
 					Tile.VoidTile.render(x, y, screen);
 				} else {
-					world[x][y].render(x, y, screen);
+					if (world[x][y] != null) {
+						world[x][y].render(x, y, screen);
 
+					}
 				}
 			}
-
 		}
 	}
 
@@ -64,9 +68,9 @@ public class Level {
 		for (int y = y0; y < y1; y++) {
 			for (int x = x0; x < x1; x++) {
 				if (x > 0 & y > 0 & x < width & y < height) {
-					
-					if (OverPlayer[x][y]) {
-						OverTiles[x][y].render(x, y, screen);
+
+					if (OverTiles[x][y] != null) {
+						OverTiles[x][y].toprender(x, y, screen);
 						{
 
 						}
@@ -78,75 +82,46 @@ public class Level {
 
 	@SuppressWarnings("unchecked")
 	private void getTiles() {
-
+walls = new Tile[width][height];
 		world = new Tile[width][height];
 		OverTiles = new Tile[width][height];
-		OverPlayer = new boolean[width][height];
 		Solids = new boolean[width][height];
+		Tile.loc = new Tile[width][height];
+		Tile.floormask = new Tile[width][height];
 
-		for (int x = 0; x < width; x++) {
-			for (int y = 0; y < height; y++) {
-				world[x][y] = levelType;
-			}
-		}
 		entityMap = new ArrayList[width * height];
 
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-
-				if (tiles[x + y * width] == 0xFFFF00FF)
-					world[x][y] = Tile.VoidTile;
-				if (tiles[x + y * width] == 0xFF00FFFF)
-					world[x][y] = Tile.sky;
-				if (tiles[x + y * width] == 0xFF007ED8)
-					world[x][y] = Tile.sky2;
-				if (tiles[x + y * width] == 0xFF4CFF00)
-					world[x][y] = Tile.sky3;
-				if (tiles[x + y * width] == 0xFF808077)
-					world[x][y] = IndoorTiles.brickwallnorth;
-				if (tiles[x + y * width] == 0xFF808078)
-					world[x][y] = IndoorTiles.brickwallsouth;
-				if (tiles[x + y * width] == 0xFF808079)
-					world[x][y] = IndoorTiles.brickwalleast;
-				if (tiles[x + y * width] == 0xFF808080)
-					world[x][y] = IndoorTiles.brickwallwest;
+				if (tiles[x + y * width] == 0xFFFF00FF) world[x][y] = Tile.VoidTile;
+				if (tiles[x + y * width] == 0xFFFFFFFF) IndoorTiles.woodfloor.Regester(x, y);
+				if (tiles[x + y * width] == 0xFF808077) IndoorTiles.brickwallnorth.Regester(x, y);
+				if (tiles[x + y * width] == 0xFF808078) IndoorTiles.brickwallsouth.Regester(x, y);
+				if (tiles[x + y * width] == 0xFF808079) IndoorTiles.brickwalleast.Regester(x, y);
+				if (tiles[x + y * width] == 0xFF808080) IndoorTiles.brickwallwest.Regester(x, y);
 				if (tiles[x + y * width] == 0xFF73410F) {
-					world[x][y] = IndoorTiles.chairsouth1;
-					world[x][y + 1] = IndoorTiles.chairsouth2;
+					IndoorTiles.chairsouth.Regester(x, y);
+
 				}
 				if (tiles[x + y * width] == 0xFF0094FF) {
-					world[x][y] = IndoorTiles.armorrack1;
+					IndoorTiles.armorrack.Regester(x, y);
 				}
 				if (tiles[x + y * width] == 0xFF73411F) {
-					world[x][y] = IndoorTiles.chairwest1;
-					world[x][y + 1] = IndoorTiles.chairwest2;
+					IndoorTiles.chairwest.Regester(x, y);
+
 				}
-				if (tiles[x + y * width] == 0xFF808069)
-					world[x][y] = IndoorTiles.southwestwall;
-				if (tiles[x + y * width] == 0xFF808068)
-					world[x][y] = IndoorTiles.southeastwall;
-				if (tiles[x + y * width] == 0xFFFF0000)
-					world[x][y] = IndoorTiles.bed;
-				if (tiles[x + y * width] == 0xFFFF0001)
-					world[x][y] = IndoorTiles.bed1;
+				if (tiles[x + y * width] == 0xFF808069) IndoorTiles.southwestwall.Regester(x, y);
+				if (tiles[x + y * width] == 0xFF808068) IndoorTiles.southeastwall.Regester(x, y);
+				if (tiles[x + y * width] == 0xFFFF0000) IndoorTiles.bed.Regester(x, y);
 				if (tiles[x + y * width] == 0xFF73412F) {
-					world[x][y] = IndoorTiles.table;
-					world[x + 1][y] = IndoorTiles.table1;
-					world[x][y + 1] = IndoorTiles.table2;
-					world[x + 1][y + 1] = IndoorTiles.table3;
+					IndoorTiles.table.Regester(x, y);
+
 				}
-				if (tiles[x + y * width] == 0xFFFFD800)
-					world[x][y] = IndoorTiles.torchn;
+				if (tiles[x + y * width] == 0xFFFFD800) IndoorTiles.torchn.Regester(x, y);
 				if (tiles[x + y * width] == 0xFFFF3700) {
-					world[x][y] = IndoorTiles.rug1;
+					IndoorTiles.rug.Regester(x, y);
+
 				}
-				if (world[x][y].OverPlayer()) {
-					OverTiles[x][y] = world[x][y];
-					OverPlayer[x][y] = true;
-					world[x][y] = levelType;
-				}
-				if (world[x][y].solid())
-					Solids[x][y] = true;
 
 			}
 		}

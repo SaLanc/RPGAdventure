@@ -52,28 +52,32 @@ public class Player extends Mob {
 				sprite = Sprite.PlayerNorth;
 				if (anim > 20) {
 					sprite = Sprite.PlayerNorth1;
-				} else if (anim > 40) {
+				}
+				if (anim > 40) {
 					sprite = Sprite.PlayerNorth2;
 				}
 			}else if (dir == 2) {
 				sprite = Sprite.PlayerSouth;
 				if (anim > 20) {
 					sprite = Sprite.PlayerSouth1;
-				}else if (anim > 40) {
+				}
+					if (anim > 40) {
 					sprite = Sprite.PlayerSouth2;
 				}
 			}else if (dir == 1) {
 				sprite = Sprite.PlayerEast;
-				if (anim > 20) {
+				if (anim > 20) {		
 					sprite = Sprite.PlayerEast1;
-				}else if (anim > 40) {
+				}
+				if (anim > 40) {
 					sprite = Sprite.PlayerEast2;
 				}
 			}else if (dir == 3) {
 				sprite = Sprite.PlayerWest;
 				if (anim > 20) {
 					sprite = Sprite.PlayerWest1;
-				}else if (anim > 40) {
+				}
+				if (anim > 40) {
 					sprite = Sprite.PlayerWest2;
 				}
 			}

@@ -11,7 +11,7 @@ public class Table1 extends Tile {
 		super(sprite);
 		// TODO Auto-generated constructor stub
 	}
-	public boolean Accessory(){
+	public boolean OverPlayer(){
 		return true;
 	}
 	public boolean solid() {

@@ -2,6 +2,7 @@ package com.SaL.RPGAdventure.level.tile.indoortiles;
 
 import com.SaL.RPGAdventure.graphics.Screen;
 import com.SaL.RPGAdventure.graphics.Sprite;
+import com.SaL.RPGAdventure.level.Level;
 import com.SaL.RPGAdventure.level.tile.Tile;
 
 
@@ -13,9 +14,11 @@ public class BrickWallWest extends Tile {
 		// TODO Auto-generated constructor stub
 	}
 
-	public boolean solid() {
-		//System.out.println("solids check");
-		return true;
+public void Regester(int x, int y){
+		loc[x][y] =  IndoorTiles.brickwallwest;
+		Level.world[x][y] = loc[x][y];
+		Level.Solids[x][y] = true;
+		Level.walls[x][y] = loc[x][y];
 	}
 	public void render(int x, int y, Screen screen) {
 

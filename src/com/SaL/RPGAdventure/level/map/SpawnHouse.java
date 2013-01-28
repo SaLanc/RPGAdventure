@@ -17,8 +17,8 @@ public class SpawnHouse extends Level{
 	}
 
 	protected void loadLevel(String path) {
-		Level.xSpawn = 5;
-		Level.ySpawn = 4;
+		Level.xSpawn = 2;
+		Level.ySpawn = 2;
 		Level.levelType = IndoorTiles.woodfloor;
 
 		try {
