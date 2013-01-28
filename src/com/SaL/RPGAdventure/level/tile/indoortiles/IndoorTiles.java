@@ -59,8 +59,8 @@ public class IndoorTiles extends Tile{
 	public boolean Accessory() {
 		return false;
 	}
-	public boolean Hanging(){
-		return true;
+	public boolean OverPlayer(){
+		return false;
 	}
 
 }

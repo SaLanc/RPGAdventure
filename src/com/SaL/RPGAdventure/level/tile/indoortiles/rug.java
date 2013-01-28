@@ -24,17 +24,17 @@ public class rug extends Tile {
 	}
 	public void render(int x, int y, Screen screen) {
 		screen.renderTile(x << 4, y << 4, IndoorTiles.woodfloor);
-		screen.renderTile(x+1 << 4, y << 4, IndoorTiles.woodfloor);
-		screen.renderTile(x+2 << 4, y << 4, IndoorTiles.woodfloor);
-		screen.renderTile(x << 4, y+1 << 4, IndoorTiles.woodfloor);
-		screen.renderTile(x+1 << 4, y+1<< 4, IndoorTiles.woodfloor);
-		screen.renderTile(x+2 << 4, y+1 << 4, IndoorTiles.woodfloor);
+	//	screen.renderTile(x+1 << 4, y << 4, IndoorTiles.woodfloor);
+	//	screen.renderTile(x+2 << 4, y << 4, IndoorTiles.woodfloor);
+	//	screen.renderTile(x << 4, y+1 << 4, IndoorTiles.woodfloor);
+	//	screen.renderTile(x+1 << 4, y+1<< 4, IndoorTiles.woodfloor);
+	//	screen.renderTile(x+2 << 4, y+1 << 4, IndoorTiles.woodfloor);
 		screen.renderTile(x << 4, y << 4, this);
-		screen.renderTile(x+1 << 4, y << 4, IndoorTiles.rug2);
-		screen.renderTile(x+2 << 4, y << 4, IndoorTiles.rug3);
-		screen.renderTile(x << 4, y+1 << 4, IndoorTiles.rug4);
-		screen.renderTile(x+1 << 4, y+1 << 4, IndoorTiles.rug5);
-		screen.renderTile(x+2 << 4, y+1 << 4, IndoorTiles.rug6);
+	//	screen.renderTile(x+1 << 4, y << 4, IndoorTiles.rug2);
+	//	screen.renderTile(x+2 << 4, y << 4, IndoorTiles.rug3);
+	//	screen.renderTile(x << 4, y+1 << 4, IndoorTiles.rug4);
+	//	screen.renderTile(x+1 << 4, y+1 << 4, IndoorTiles.rug5);
+	//	screen.renderTile(x+2 << 4, y+1 << 4, IndoorTiles.rug6);
 	}
 
 }

@@ -13,8 +13,6 @@ public class Tile {
 	public static Tile sky = new SkyTile(Sprite.sky);
 	public static Tile sky2 = new SkyTile2(Sprite.sky2);
 	public static Tile sky3 = new SkyTile3(Sprite.sky3);
-	protected  long timer = System.currentTimeMillis();
-	protected  long timenow = 0;
 	protected static boolean qtick = false;
 	
 	public Tile(Sprite sprite) {
@@ -32,7 +30,7 @@ public class Tile {
 	public boolean Accessory() {
 		return false;
 	}
-	public boolean Hanging(){
+	public boolean OverPlayer(){
 		return false;
 	}
 }

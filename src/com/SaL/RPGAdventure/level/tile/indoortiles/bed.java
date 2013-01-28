@@ -9,9 +9,10 @@ public class bed extends Tile{
 	public bed(Sprite sprite) {
 
 		super(sprite);
+
 		// TODO Auto-generated constructor stub
 	}
-	public boolean Accessory(){
+	public boolean OverPlayer(){
 		return true;
 	}
 	public boolean solid() {

@@ -97,7 +97,6 @@ public class Game extends Canvas implements Runnable {
 		//	level.update(screen);
 			frames++;
 			ticktimenow = System.currentTimeMillis();
-			System.out.println(ticktimenow - ticktimer);
 			if (ticktimenow - ticktimer  > 500) {
 				ticktimer = System.currentTimeMillis();
 			}
@@ -127,7 +126,7 @@ public class Game extends Canvas implements Runnable {
 
 		level.render(xScroll, yScroll, screen);
 		player.render(screen);
-		level.renderAcc(xScroll, yScroll, screen);
+		level.overrender(xScroll, yScroll, screen);
 
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];

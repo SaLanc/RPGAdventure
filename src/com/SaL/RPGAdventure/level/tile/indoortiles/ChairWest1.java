@@ -12,7 +12,7 @@ public class ChairWest1 extends Tile {
 		super(sprite);
 		// TODO Auto-generated constructor stub
 	}
-	public boolean Accessory(){
+	public boolean OverPlayer(){
 		return true;
 	}
 	public void render(int x, int y, Screen screen) {
