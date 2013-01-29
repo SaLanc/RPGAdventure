@@ -35,6 +35,10 @@ public class Level {
 	protected void loadLevel(String Path) {
 
 	}
+	public void update(){
+		
+		
+	}
 	
 
 

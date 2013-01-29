@@ -2,19 +2,13 @@ package com.SaL.RPGAdventure;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
 import com.SaL.RPGAdventure.entity.mob.Player;
 import com.SaL.RPGAdventure.graphics.Screen;
+import com.SaL.RPGAdventure.graphics.TitleScreen;
 import com.SaL.RPGAdventure.input.KeyBoard;
-import com.SaL.RPGAdventure.level.Level;
-//import com.SaL.RPGAdventure.level.World1;
-import com.SaL.RPGAdventure.level.map.SpawnHouse;
 
 public class Game extends Canvas implements Runnable {
 
@@ -29,26 +23,22 @@ public class Game extends Canvas implements Runnable {
 
 	private Thread thread;
 	private JFrame frame;
-	private KeyBoard key;
-	private Level level;
+	public static KeyBoard key;
 	private Player player;
 	//	private Entity entities;
 	private boolean running = false;
 	private Screen screen;
 	public static boolean qtick = false;
 
-	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+
 
 	public Game() {
 
 		Dimension size = new Dimension(width * scale, height * scale);
 		setPreferredSize(size);
 
-		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new KeyBoard();
-		level = new SpawnHouse("/textures/maps/spawnroom.png");
 		player = new Player(key);
 		//	entities = new Entity();
 
@@ -74,7 +64,7 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public void run() {
-
+		setScreen(new TitleScreen());
 		long lastTime = System.nanoTime();
 		long timer = System.currentTimeMillis();
 		final double ns = 1000000000.0 / 90.0;
@@ -93,8 +83,7 @@ public class Game extends Canvas implements Runnable {
 				updates++;
 				delta--;
 			}
-			render();
-		//	level.update(screen);
+			screen.render();
 			frames++;
 			ticktimenow = System.currentTimeMillis();
 			if (ticktimenow - ticktimer  > 500) {
@@ -113,34 +102,10 @@ public class Game extends Canvas implements Runnable {
 		stop();
 	}
 
-	private void render() {
-
-		BufferStrategy bs = getBufferStrategy();
-		if (bs == null) {
-			createBufferStrategy(3);
-			return;
-		}
-		screen.clear();
-		int xScroll = player.x - (screen.width / 2);
-		int yScroll = player.y - (screen.height / 2);
-
-		level.render(xScroll, yScroll, screen);
-		player.render(screen);
-		level.overrender(xScroll, yScroll, screen);
-
-		for (int i = 0; i < pixels.length; i++) {
-			pixels[i] = screen.pixels[i];
-		}
-
-		Graphics g = bs.getDrawGraphics();
-		g.fillRect(0, 0, getWidth(), getHeight());
-		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-		g.dispose();
-		bs.show();
-	}
+	
 
 	private void update() {
-
+		screen.update(key);
 		key.update();
 		player.update();
 
@@ -161,5 +126,11 @@ public class Game extends Canvas implements Runnable {
 		game.start();
 
 	}
+
+    public void setScreen(Screen newScreen) {
+        if (screen != null) screen.removed();
+        screen = newScreen;
+        if (screen != null) screen.init(this);
+    }
 
 }
