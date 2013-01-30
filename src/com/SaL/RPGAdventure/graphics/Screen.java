@@ -1,22 +1,51 @@
 package com.SaL.RPGAdventure.graphics;
 
+
+import java.awt.Canvas;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
+
+import com.SaL.RPGAdventure.Game;
+import com.SaL.RPGAdventure.entity.mob.Player;
+import com.SaL.RPGAdventure.input.KeyBoard;
+import com.SaL.RPGAdventure.level.Level;
 import com.SaL.RPGAdventure.level.tile.Tile;
 
-public class Screen {
+public class Screen extends Canvas {
 
+	/**
+	 * 
+	 */
+	protected static final long serialVersionUID = 1L;
 	public int width, height;
 	public int[] pixels;
 	public final int MAP_SIZE = 64;
 	public final int MAP_SIZE_MASK = MAP_SIZE - 1;
+	private Game game;
+	protected Level level;
+	protected Screen screen;
+	protected Player player;
+	protected BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+	protected int[] pixelsimage = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
 	public int xOffset, yOffset;
 
 	public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
 
-	public Screen(int width, int height) {
+	public final void init(Game game) {
+		this.game = game;
+		
+	}
+	public void render() {
 
-		this.width = width;
-		this.height = height;
+
+	}
+	
+	
+	public Screen() {
+
+		Game.width = width;
+		Game.height = height;
 		pixels = new int[width * height];
 	}
 
@@ -85,5 +114,14 @@ public class Screen {
 		this.yOffset = yOffset;
 
 	}
+	public void removed() {
+		
+	}
+	public void update(KeyBoard key) {
+		
+	}
+    protected void setScreen(Screen screen) {
+        game.setScreen(screen);
+    }
 
 }
