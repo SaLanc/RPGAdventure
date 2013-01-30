@@ -29,9 +29,9 @@ public class Game extends Canvas implements Runnable {
 
 	private Thread thread;
 	private JFrame frame;
-	private KeyBoard key;
+	public static KeyBoard key;
 	private Level level;
-	private Player player;
+	public static Player player;
 	//	private Entity entities;
 	private boolean running = false;
 	private Screen screen;
@@ -48,8 +48,9 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new KeyBoard();
+//		player = new Player(key);
 		level = new SpawnHouse("/textures/maps/spawnroom.png");
-		player = new Player(key);
+//		player = new Player(key);
 		//	entities = new Entity();
 
 		addKeyListener(key);
@@ -89,7 +90,8 @@ public class Game extends Canvas implements Runnable {
 			delta += (now - lastTime) / ns;
 			lastTime = now;
 			while (delta >= 1) {
-				update();
+				level.update();
+				key.update();
 				updates++;
 				delta--;
 			}
@@ -141,8 +143,8 @@ public class Game extends Canvas implements Runnable {
 
 	private void update() {
 
-		key.update();
-		player.update();
+
+//		player.update();
 
 
 	}

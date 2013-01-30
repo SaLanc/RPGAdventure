@@ -1,6 +1,7 @@
 package com.SaL.RPGAdventure.entity.mob;
 
 //import com.SaL.CaveScroll.level.tile.Tile;
+import com.SaL.RPGAdventure.Game;
 import com.SaL.RPGAdventure.graphics.Screen;
 import com.SaL.RPGAdventure.graphics.Sprite;
 import com.SaL.RPGAdventure.input.KeyBoard;
@@ -21,6 +22,16 @@ public class Player extends Mob {
 		this.x += Level.xSpawn << 4;
 		this.y += Level.ySpawn << 4;
 
+	}
+
+	public Player(int xSpawn, int ySpawn) {
+
+		sprite = Sprite.PlayerSouth;
+		this.x +=xSpawn;
+		this.y +=ySpawn;
+		this.input = Game.key;
+		
+		
 	}
 
 	public void update() {
