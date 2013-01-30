@@ -25,7 +25,7 @@ public abstract class Mob extends Entity {
 		XfootLeft = ((x+3)>>4);
 		XfootRight= ((x-3)>>4);
 		collisioncheck(xa, ya);
-System.out.println(centerX +" "+ centerY);
+
 	}
 
 	public void update() {

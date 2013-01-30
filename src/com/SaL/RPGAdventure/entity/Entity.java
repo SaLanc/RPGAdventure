@@ -13,7 +13,7 @@ public abstract class  Entity {
 	public int x,y;
 	//tile center location for 32 size sprite
 	public int centerX,centerY;
-	public boolean removed = false;
+	private boolean removed = false;
 	protected Level level;
 	protected final Random random = new Random();
 	protected Sprite sprite;

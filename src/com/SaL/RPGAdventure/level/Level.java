@@ -3,7 +3,6 @@ package com.SaL.RPGAdventure.level;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.SaL.RPGAdventure.Game;
 import com.SaL.RPGAdventure.entity.Entity;
 import com.SaL.RPGAdventure.entity.mob.*;
 
@@ -24,11 +23,10 @@ public class Level {
 	public static Tile levelType;
 	public Player player;
 	public List<Entity> entities = new ArrayList<Entity>();
-	public List<Entity>[][] entityMap;
+	public List<Entity>[] entityMap;
 
 	public Level(String path) {
 
-		player = Game.player;
 		loadLevel(path);
 		getTiles();
 
@@ -37,6 +35,8 @@ public class Level {
 	protected void loadLevel(String Path) {
 
 	}
+	
+
 
 	public void render(int xScroll, int yScroll, Screen screen) {
 
@@ -82,21 +82,17 @@ public class Level {
 
 	@SuppressWarnings("unchecked")
 	private void getTiles() {
-
-		walls = new Tile[width][height];
+walls = new Tile[width][height];
 		world = new Tile[width][height];
 		OverTiles = new Tile[width][height];
 		Solids = new boolean[width][height];
 		Tile.loc = new Tile[width][height];
 		Tile.floormask = new Tile[width][height];
 
-		entityMap = new ArrayList[width][height];
+		entityMap = new ArrayList[width * height];
 
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-
-				entityMap[x][y] = new ArrayList<Entity>();
-
 				if (tiles[x + y * width] == 0xFFFF00FF) world[x][y] = Tile.VoidTile;
 				if (tiles[x + y * width] == 0xFFFFFFFF) IndoorTiles.woodfloor.Regester(x, y);
 				if (tiles[x + y * width] == 0xFF808077) IndoorTiles.brickwallnorth.Regester(x, y);
@@ -127,50 +123,6 @@ public class Level {
 
 				}
 
-			}
-		}
-		player = new Player(Game.key);
-		add(player);
-	}
-
-	public void add(Entity e) {
-
-		entities.add(e);
-		e.init(this);
-
-		e.centerX = ((e.x) >> 4);
-		e.centerY = (e.y >> 4);
-		if (e.centerX >= 0 && e.centerY >= 0 && e.centerX < width && e.centerY < height) {
-			entityMap[e.centerX][e.centerY].add(e);
-		}
-	}
-
-	public void update() {
-
-		for (int i = 0; i < entities.size(); i++) {
-			Entity e = entities.get(i);
-			int xSlotOld = e.centerX;
-			int ySlotOld = e.centerY;
-			if (!e.removed) e.update();
-			e.centerX = ((e.x) >> 4);
-			e.centerY = (e.y >> 4);
-			if (e.removed) {
-				if (xSlotOld >= 0 && ySlotOld >= 0 && xSlotOld < width && ySlotOld < height) {
-					entityMap[xSlotOld][ySlotOld].remove(e);
-				}
-				entities.remove(i--);
-			} else {
-				if (e.centerX != xSlotOld || e.centerY != ySlotOld) {
-					if (xSlotOld >= 0 && ySlotOld >= 0 && xSlotOld < width && ySlotOld < height) {
-						entityMap[xSlotOld][ySlotOld].remove(e);
-					}
-					if (e.centerX >= 0 && e.centerY >= 0 && e.centerX < width && e.centerY < height) {
-						entityMap[e.centerX][e.centerY].add(e);
-					} else {
-						e.outOfBounds();
-					}
-
-				}
 			}
 		}
 	}
