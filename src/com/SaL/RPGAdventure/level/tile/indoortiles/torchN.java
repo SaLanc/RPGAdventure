@@ -1,6 +1,6 @@
 package com.SaL.RPGAdventure.level.tile.indoortiles;
 
-import com.SaL.RPGAdventure.Game;
+import com.SaL.RPGAdventure.ThoseDangZombies;
 import com.SaL.RPGAdventure.graphics.Screen;
 import com.SaL.RPGAdventure.graphics.Sprite;
 import com.SaL.RPGAdventure.level.Level;
@@ -25,7 +25,7 @@ public class torchN extends Tile {
 	public void render(int x, int y, Screen screen) {
 			screen.renderTile(x << 4, y << 4, Level.levelType);
 			screen.renderTile(x << 4, y-1 << 4, IndoorTiles.brickwallnorth);
-			if (Game.qtick) {
+			if (ThoseDangZombies.qtick) {
 				screen.renderTile(x << 4, y - 1 << 4, this);
 
 			} else {

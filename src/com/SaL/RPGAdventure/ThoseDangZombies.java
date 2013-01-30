@@ -16,7 +16,7 @@ import com.SaL.RPGAdventure.level.Level;
 //import com.SaL.RPGAdventure.level.World1;
 import com.SaL.RPGAdventure.level.map.SpawnHouse;
 
-public class Game extends Canvas implements Runnable {
+public class ThoseDangZombies extends Canvas implements Runnable {
 
 	/**
 		 * 
@@ -40,7 +40,7 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
-	public Game() {
+	public ThoseDangZombies() {
 
 		Dimension size = new Dimension(width * scale, height * scale);
 		setPreferredSize(size);
@@ -62,6 +62,12 @@ public class Game extends Canvas implements Runnable {
 		thread = new Thread(this, "Display");
 		thread.start();
 	}
+	
+    public void setScreen(Screen newScreen) {
+        if (screen != null) screen.removed();
+        screen = newScreen;
+        if (screen != null) screen.init(this);
+    }
 
 	public synchronized void stop() {
 
@@ -115,7 +121,7 @@ public class Game extends Canvas implements Runnable {
 		stop();
 	}
 
-	private void render() {
+	public void render() {
 
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -151,9 +157,9 @@ public class Game extends Canvas implements Runnable {
 
 	public static void main(String[] args) {
 
-		Game game = new Game();
+		ThoseDangZombies game = new ThoseDangZombies();
 		game.frame.setResizable(false);
-		game.frame.setTitle(Game.title);
+		game.frame.setTitle(ThoseDangZombies.title);
 		game.frame.add(game);
 		game.frame.pack();
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
