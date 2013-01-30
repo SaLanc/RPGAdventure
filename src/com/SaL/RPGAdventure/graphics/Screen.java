@@ -1,6 +1,5 @@
 package com.SaL.RPGAdventure.graphics;
 
-import com.SaL.RPGAdventure.ThoseDangZombies;
 import com.SaL.RPGAdventure.level.tile.Tile;
 
 public class Screen {
@@ -13,7 +12,6 @@ public class Screen {
 	public int xOffset, yOffset;
 
 	public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
-	protected ThoseDangZombies game;
 
 	public Screen(int width, int height) {
 
@@ -28,11 +26,6 @@ public class Screen {
 			pixels[i] = 0;
 		}
 	}
-    public final void init(ThoseDangZombies game) {
-        this.game = game;
-    }
-    public void removed() {
-    }
 
 	public void renderTile(int xp, int yp, Tile tile) {
 
@@ -85,16 +78,6 @@ public class Screen {
 		}
 
 	}
-	
-	public void update() {
-		
-	}
-public void render(){
-	
-}
-protected void setScreen(Screen screen) {
-    game.setScreen(screen);
-}
 
 	public void setOffset(int xOffset, int yOffset) {
 
